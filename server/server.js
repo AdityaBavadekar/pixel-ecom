@@ -36,8 +36,8 @@ app.get('/', (req, res)=>{
 
 app.use('/api/products', verifyToken, productRouter);
 app.use('/api/brands', verifyToken, brandRouter);
-app.use('/api/cart', verifyToken, cartRouter);
-app.use('/api/orders', verifyToken, orderRouter);
+app.use('/api/my-cart', verifyToken, cartRouter);
+app.use('/api/my-orders', verifyToken, orderRouter);
 app.use('/api/reviews', verifyToken, reviewRouter);
 app.use('/api/users', verifyToken, usersRouter);
 app.use('/api/auth', authRouter);

@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { getAllBrands, getBrandById, getMyAllBrands, updateBrandById, deleteBrandById, addBrand } from "../controllers/brandController.js";
-import { verifyIsBrandManager } from "../middleware/verifyIsBrandManager.js";
 
 const router = Router();
 

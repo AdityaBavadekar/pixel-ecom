@@ -3,8 +3,7 @@ import Brand from "../models/Brand.js";
 
 async function getProductById(req, res) {
     try {
-        const { id } = req.params.id;
-        const product = Product.findById(id);
+        const product = await Product.findById(req.params.id);
         if (!product) {
             return res
                 .status(404)
@@ -21,8 +20,7 @@ async function getProductById(req, res) {
 
 async function deleteProductById(req, res) {
     try {
-        const { id } = req.params.id;
-        const product = Product.findById(id);
+        const product = await Product.findById(req.params.id);
         if (!product) {
             return res
                 .status(404)
@@ -53,8 +51,7 @@ async function deleteProductById(req, res) {
 
 async function updateProductById(req, res) {
     try {
-        const { id } = req.params.id;
-        const product = Product.findById(id);
+        const product = await Product.findById(req.params.id);
         if (!product) {
             return res
                 .status(404)

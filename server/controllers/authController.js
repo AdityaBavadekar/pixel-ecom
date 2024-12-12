@@ -56,13 +56,12 @@ async function login(req, res) {
         if (!user) {
             return res.status(404).json({message: "User not found"})
         }
-
+        
         const isPasswordValid = bcrypt.compare(password, user.password);
-
         if (!isPasswordValid) {
             return res.status(400).json({message:"Invalid credentials"})
         }
-
+        
         generateTokenAndSetCookie(res, user);
         user.lastLogin = new Date();
         await user.save();
@@ -96,8 +95,12 @@ async function checkAuth(req, res) {
         if (!user) {
             return res.status(400).json({message:"User not found"})
         }
-        
-        res.status(200).json({user})
+        res.status(200).json({
+            user: {
+                ...user._doc,
+                password: undefined
+            }
+        })
     } catch (error) {
         console.log("Error in checkAuth", error);
         return res.status(500).json({message:"Error occurred"})

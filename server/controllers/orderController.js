@@ -31,4 +31,8 @@ async function addOrder(req, res) {
     }
 }
 
+async function cancelOrder(req, res) {
+    // TODO
+}
+
 export { getMyOrders, addOrder };
